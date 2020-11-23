@@ -16,7 +16,7 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 }
 
 func (r *mutationResolver) AddBook(ctx context.Context, input model.NewBook) (*model.Book, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.addBook(input)
 }
 
 func (r *queryResolver) Books(ctx context.Context) ([]*model.Book, error) {
