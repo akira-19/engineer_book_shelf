@@ -50,6 +50,8 @@ const Layout = ({ location, title, children }) => {
       </>
     )
   }
+
+  return header
 }
 
 export default Layout
