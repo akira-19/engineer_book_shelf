@@ -1,6 +1,6 @@
 import path from "path"
 import { GatsbyNode } from "gatsby"
-import { Site, SiteSiteMetadataAuthors } from "../types/graphql-types"
+import { Site, SiteSiteMetadataAuthors } from "../types/graphql-types.d"
 // ______________________________________________________
 //
 type Result = {
