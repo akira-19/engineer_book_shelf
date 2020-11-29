@@ -1,12 +1,3 @@
-// 'use strict'
-// require('ts-node').register({
-//   compilerOptions: {
-//     module: 'commonjs',
-//     target: 'esnext',
-//   },
-// })
-// exports.createPages = require('./gatsby-node/index').createPages
-
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
  
@@ -18,5 +9,4 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
-}
- 
+ }
