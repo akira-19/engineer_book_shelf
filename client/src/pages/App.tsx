@@ -7,9 +7,9 @@ import { PrivateRoute, PublicRoute } from "../components/routes"
 
 const App = () => (
  <Layout>
-   <Router>
-     <PrivateRoute path="/app/profile" component={Profile} />
-     <PublicRoute path="/app/login" component={Login} />
+   <Router basepath="/app">
+     <PrivateRoute path="/profile" component={Profile} />
+     <PublicRoute path="/login" component={Login} />
    </Router>
  </Layout>
 )

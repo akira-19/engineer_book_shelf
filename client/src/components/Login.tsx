@@ -3,15 +3,15 @@ import { navigate } from "gatsby"
 import { handleLogin, isLoggedIn } from "../services/auth"
 
 export default () => {
- const [username, setUsername] = useState("")
+ const [email, setEmail] = useState("")
  const [password, setPassword] = useState("")
 
  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
    event.preventDefault()
-   handleLogin({
-     username,
+   handleLogin(
+     email,
      password,
-   })
+   )
    navigate(`/app/profile`)
  }
 
@@ -31,12 +31,12 @@ export default () => {
        }}
      >
        <label>
-         Username
+         Email
          <input
            type="text"
-           name="username"
-           value={username}
-           onChange={event => setUsername(event.currentTarget.value)}
+           name="email"
+           value={email}
+           onChange={event => setEmail(event.currentTarget.value)}
          />
        </label>
        <label>

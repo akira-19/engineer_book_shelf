@@ -1,32 +1,49 @@
-export const isBrowser = () => typeof window !== "undefined"
+import firebase from './firebase';
 
-export const getUser = () =>
- isBrowser() && window.localStorage.getItem("gatsbyUser")
-   ? JSON.parse(window.localStorage.getItem("gatsbyUser"))
-   : {}
+export const isBrowser = () => typeof window !== 'undefined';
 
-const setUser = user =>
- window.localStorage.setItem("gatsbyUser", JSON.stringify(user))
+export const getUser = () => {
+  const user = window.localStorage.getItem('gatsbyUser');
 
-export const handleLogin = ({ username, password }) => {
- if (username === `john` && password === `pass`) {
-   return setUser({
-     username: `john`,
-     name: `Johnny`,
-     email: `johnny@example.org`,
-   })
- }
+  return isBrowser() && user ? JSON.parse(user) : {};
+};
 
- return false
-}
+const setUser = (user) =>
+  window.localStorage.setItem('gatsbyUser', JSON.stringify(user));
 
-export const isLoggedIn = () => {
- const user = getUser()
+export const handleLogin = (email: string, password: string) => {
+  const isSuccess = firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((res) => {
+      console.log(res);
 
- return !!user.username
-}
+      return true;
+    })
+    .catch((error) => {
+      console.log(error);
 
-export const logout = callback => {
- setUser({})
- callback()
-}
+      return false;
+    });
+  console.log(isSuccess);
+
+  return isSuccess;
+};
+
+export const isLoggedIn = async () => {
+  let result = false;
+  await firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log('auth success');
+      setUser(user);
+      result = true;
+    }
+  });
+
+  return result;
+};
+
+export const logout = (callback) => {
+  setUser({});
+  callback();
+};
