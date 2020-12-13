@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+  "compilerOptions": {, "wrap-root-element.jsx"
     "skipLibCheck": true,
     "target": "esnext",
     "module": "commonjs",
