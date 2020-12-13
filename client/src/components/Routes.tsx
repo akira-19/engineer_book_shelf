@@ -1,8 +1,6 @@
 import React, { useState } from "react"
-import { navigate } from "gatsby"
-import { isLoggedIn } from "../services/auth"
 import firebase from 'firebase';
-import Login from './login';
+import Login from './Login';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,6 +11,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       if (user) {
         console.log('auth success');
         result = true;
+        setIsLoggedIn(true);
       }
       setIsTokenChecking(false);
     });

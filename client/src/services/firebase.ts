@@ -1,6 +1,7 @@
-import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-firebase.initializeApp({
+const firebaseConfig = {
   apiKey: process.env.GATSBY_FIREBASE_APIKEY,
   authDomain: process.env.GATSBY_FIREBASE_AUTHDOMAIN,
   databaseURL: process.env.GATSBY_FIREBASE_DATABASEURL,
@@ -9,6 +10,8 @@ firebase.initializeApp({
   messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGINGSENDERID,
   appId: process.env.GATSBY_FIREBASE_APPID,
   measurementId: process.env.GATSBY_FIREBASE_MEASUREMENTID,
-})
+};
 
-export default firebase
+firebase.initializeApp(firebaseConfig);
+
+export default firebase;

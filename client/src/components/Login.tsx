@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 import { handleLogin, isLoggedIn } from "../services/auth"
 
-export default () => {
+const Login = () => {
  const [email, setEmail] = useState("")
  const [password, setPassword] = useState("")
 
@@ -53,3 +53,5 @@ export default () => {
    </>
  )
 }
+
+export default Login
