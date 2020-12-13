@@ -1,6 +1,6 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
@@ -11,5 +11,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-typescript`,
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.jsx?$|\.tsx?$/,
+        exclude: /node_modules|\.cache|public/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
+      },
+    },
   ],
-}
+};

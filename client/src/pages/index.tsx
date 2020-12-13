@@ -1,9 +1,9 @@
-import React from "react"
-import { navigate } from "gatsby"
-import { PrivateRoute } from '../components/Routes'
-import  Profile  from '../components/Profile'
+import React from 'react';
+import { PrivateRoute } from '../components/Routes';
+import Profile from '../components/Profile';
 
-
-export default () => {
+const IndexPage = () => {
   return <PrivateRoute component={Profile} />;
-}
+};
+
+export default IndexPage;

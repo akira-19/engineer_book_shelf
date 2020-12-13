@@ -1,4 +1,5 @@
 import firebase from './firebase';
+import { navigate } from 'gatsby';
 
 export const isBrowser = () => typeof window !== 'undefined';
 
@@ -43,7 +44,8 @@ export const isLoggedIn = async () => {
   return result;
 };
 
-export const logout = (callback) => {
+export const logout = () => {
+  firebase.auth().signOut();
   setUser({});
-  callback();
+  navigate('/app/login');
 };

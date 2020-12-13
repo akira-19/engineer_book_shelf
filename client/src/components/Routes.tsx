@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import firebase from 'firebase';
 import Login from './Login';
 
@@ -34,4 +34,6 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   return <Component />;
 };
 
-export const PublicRoute = ({ component: Component, ...rest }) => <Component {...rest} />
+export const PublicRoute = ({ component: Component, ...rest }) => (
+  <Component {...rest} />
+);
