@@ -2,22 +2,19 @@ import React, { FC } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Image from 'next/image';
-import ColorStyle from '../../styles/ColorStyle';
-import Header from '../components/Layout/Header';
+import ColorStyle from '../../../styles/ColorStyle';
 
-const Home: FC = () => {
+const Layout: FC = () => {
   return (
     <Container>
       <Head>
         <title>エンジニアの本棚</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
 
       <MainContainer>
         <TopContainer>
           <TitleTextContainer>エンジニアの本棚</TitleTextContainer>
-
           <TitleImageContainer>
             <Image
               src="/top-image.png"
@@ -48,6 +45,7 @@ const MainContainer = styled.main`
 const TopContainer = styled.div`
   height: 400px;
   width: 100%;
+
   display: flex;
   flex-direction: column;
 `;
@@ -55,7 +53,6 @@ const TopContainer = styled.div`
 const TitleTextContainer = styled.div`
   width: 400px;
   margin: 0 auto;
-  padding-top: 50px;
   font-size: 50px;
   font-weight: 600;
   color: ${ColorStyle.GREEN.DARK};
